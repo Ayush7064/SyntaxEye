@@ -1,0 +1,111 @@
+/* Global Reset */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevents unwanted scroll */
+}
+
+body {
+  font-family: "JetBrains Mono", serif;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main Layout */
+main {
+  display: flex;
+  flex-grow: 1;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+/* Left & Right Panels */
+.left, .right {
+  flex-basis: 50%;
+  height: 90vh;
+  padding: 1rem;
+  border-radius: 0.7rem;
+  overflow-y: auto;
+}
+
+/* Left Panel */
+.left {
+  background-color: #101f2e;
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column; /* Makes sure elements stack properly */
+}
+
+/* Code Editor */
+.code {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* Right Panel */
+.right {
+  background-color: #2d3b57;
+  position: relative;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.90rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Review Button */
+.review {
+  margin-top: auto;
+  background-color: #778da9;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+
+.review:active {
+  background-color: #404e5a;
+}
+
+/* Code Styling */
+pre[class*="language-"], code[class*="language-"] {
+  background: transparent !important;
+}
+
+/* 🔹 Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  main {
+    flex-direction: column; /* Stack sections vertically */
+    gap: 0.5rem;
+  }
+
+  .left, .right {
+    flex-basis: auto;
+    height: 45vh; /* Reduce height to fit both sections */
+    width: 100%;
+    padding: 0.7rem;
+  }
+
+  .review {
+    width: 100%; /* Make button full width */
+    position: relative;
+    right: auto;
+    bottom: auto;
+    text-align: center;
+    padding: 0.6rem;
+    font-size: 1rem;
+  }
+}
